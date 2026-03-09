@@ -1,0 +1,53 @@
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import "../node_modules/bootstrap/scss/functions";
+
+// 2. Include any default variable overrides here
+$link-decoration: none;
+
+// 3. Include remainder of required Bootstrap stylesheets
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/variables-dark";
+
+// 4. Include any default map overrides here
+$custom-colors: (
+	"farve": $cyan-400,
+);
+
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+@import "bootstrapComponents";
+
+// 5. Du kan lave styling her...
+
+.theheader{
+	background-color: #82BA88;
+}
+
+.logo{
+	max-width: 150px;
+	max-height: 250px;
+}
+
+.topimg{
+	height: 200px;
+}
+
+.recipeimg{
+	height: 200px;
+}
+
+.paragraph{
+	padding-left: 30px;
+	padding-right: 30px;
+}
+
+.custombtn{
+	background-color: #FAA4B5;
+	&:hover {
+		background: darken(#FAA4B5, 10%)
+	}
+}
+
+footer{
+	background-color: #82ba88;
+}
