@@ -21,51 +21,49 @@
 </div>
 
 <div>
-    <img class="recipeimg object-fit-cover w-100" src="img/nem-hurtig-lasagne%201.png" alt="Billede af mad">
+    <img id="recipeImg" class="recipeimg object-fit-cover w-100" src="img/nem-hurtig-lasagne%201.png" alt="Billede af mad">
 </div>
 
 <div class="container boks">
     <div class="col-12 ps-4 pe-4">
         <a class="link-dark" href="recipe.html"><div class="mt-4 mb-4 text-center btn w-100 rounded-5 custombtn">Giv mig en ny opskrift!</div></a>
 
-        <h1> Opskrift navn </h1>
+        <h1 id="recipeName"> Opskrift navn </h1>
 
-        <p> Kategori: N/A</p>
-        <p> Nationalitet: N/A</p>
+        <p class="fw-bold">Kategori: </p>
+        <p id="recipeCategory">N/A</p>
+        <p class="fw-bold">Nationalitet: </p>
+        <p id="recipeNation">N/A</p>
 
         <br>
         <br>
 
         <p class="h5"> Det skal du bruge:</p>
-
-        <li>Ingrediens1</li>
-        <li>Ingrediens2</li>
-        <li>Ingrediens3</li>
-        <li>Ingrediens4</li>
-        <li>Ingrediens5</li>
-        <li>Ingrediens6</li>
-        <li>Ingrediens7</li>
-        <li>Ingrediens8</li>
-        <li>Ingrediens9</li>
-        <li>Ingrediens10</li>
-        <li>Ingrediens11</li>
-        <li>Ingrediens12</li>
-        <li>Ingrediens13</li>
-        <li>Ingrediens14</li>
-        <li>Ingrediens15</li>
-        <li>Ingrediens16</li>
-        <li>Ingrediens17</li>
-        <li>Ingrediens18</li>
-        <li>Ingrediens19</li>
-        <li>Ingrediens20</li>
+        <li id="recipeIngredient1">Ingrediens</li>
+        <li id="recipeIngredient2">Ingrediens</li>
+        <li id="recipeIngredient3">Ingrediens</li>
+        <li id="recipeIngredient4">Ingrediens</li>
+        <li id="recipeIngredient5">Ingrediens</li>
+        <li id="recipeIngredient6">Ingrediens</li>
+        <li id="recipeIngredient7">Ingrediens</li>
+        <li id="recipeIngredient8">Ingrediens</li>
+        <li id="recipeIngredient9">Ingrediens</li>
+        <li id="recipeIngredient10">Ingrediens</li>
+        <li id="recipeIngredient11">Ingrediens</li>
+        <li id="recipeIngredient12">Ingrediens</li>
+        <li id="recipeIngredient13">Ingrediens</li>
+        <li id="recipeIngredient14">Ingrediens</li>
+        <li id="recipeIngredient15">Ingrediens</li>
+        <li id="recipeIngredient16">Ingrediens</li>
+        <li id="recipeIngredient17">Ingrediens</li>
+        <li id="recipeIngredient18">Ingrediens</li>
+        <li id="recipeIngredient19">Ingrediens</li>
+        <li id="recipeIngredient20">Ingrediens</li>
 
         <br>
 
         <p class="h5">Sådan gør du:</p>
-        <p>This is a sample text. This is a sample text. This is a sample text. This is a sample text. This is a sample
-            text. This is a sample text. This is a sample text. This is a sample text. This is a sample text. This is a
-            sample text. This is a sample text. This is a sample text. This is a sample text. This is a sample text.
-            This is a sample text. This is a sample text. This is a sample text. This is a sample text. </p>
+        <p id="recipeInstructions"></p>
 
     </div>
     <div class="mt-4 mb-4 text-center btn w-100 rounded-5 custombtn">Download opskrift</div>
@@ -77,14 +75,93 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 <script>
+
+    const recipeImg = document.querySelector("#recipeImg");
+    const recipeName = document.querySelector("#recipeName");
+    const recipeCategory = document.querySelector("#recipeCategory");
+    const recipeNation = document.querySelector("#recipeNation");
+    const recipeIngredient1 = document.querySelector("#recipeIngredient1");
+    const recipeIngredient2 = document.querySelector("#recipeIngredient2");
+    const recipeIngredient3 = document.querySelector("#recipeIngredient3");
+    const recipeIngredient4 = document.querySelector("#recipeIngredient4");
+    const recipeIngredient5 = document.querySelector("#recipeIngredient5");
+    const recipeIngredient6 = document.querySelector("#recipeIngredient6");
+    const recipeIngredient7 = document.querySelector("#recipeIngredient7");
+    const recipeIngredient8 = document.querySelector("#recipeIngredient8");
+    const recipeIngredient9 = document.querySelector("#recipeIngredient9");
+    const recipeIngredient10 = document.querySelector("#recipeIngredient10");
+    const recipeIngredient11 = document.querySelector("#recipeIngredient11");
+    const recipeIngredient12 = document.querySelector("#recipeIngredient12");
+    const recipeIngredient13 = document.querySelector("#recipeIngredient13");
+    const recipeIngredient14 = document.querySelector("#recipeIngredient14");
+    const recipeIngredient15 = document.querySelector("#recipeIngredient15");
+    const recipeIngredient16 = document.querySelector("#recipeIngredient16");
+    const recipeIngredient17 = document.querySelector("#recipeIngredient17");
+    const recipeIngredient18 = document.querySelector("#recipeIngredient18");
+    const recipeIngredient19 = document.querySelector("#recipeIngredient19");
+    const recipeIngredient20 = document.querySelector("#recipeIngredient20");
+    const recipeInstructions = document.querySelector("#recipeInstructions");
+
     findRecipe();
 
-    function findRecipe(){
+    function findRecipe() {
         fetch("https://www.themealdb.com/api/json/v1/1/random.php")
             .then(req => req.json())
             .then(res => {
-                console.log(res);
-            })
+
+                const img = res.meals[0].strMealThumb;
+                const meal = res.meals[0].strMeal;
+                const category = res.meals[0].strCategory
+                const nation = res.meals[0].strArea
+                const ingredient1 = res.meals[0].strIngredient1
+                const ingredient2 = res.meals[0].strIngredient2
+                const ingredient3 = res.meals[0].strIngredient3
+                const ingredient4 = res.meals[0].strIngredient4
+                const ingredient5 = res.meals[0].strIngredient5
+                const ingredient6 = res.meals[0].strIngredient6
+                const ingredient7 = res.meals[0].strIngredient7
+                const ingredient8 = res.meals[0].strIngredient8
+                const ingredient9 = res.meals[0].strIngredient9
+                const ingredient10 = res.meals[0].strIngredient10
+                const ingredient11 = res.meals[0].strIngredient11
+                const ingredient12 = res.meals[0].strIngredient12
+                const ingredient13 = res.meals[0].strIngredient13
+                const ingredient14 = res.meals[0].strIngredient14
+                const ingredient15 = res.meals[0].strIngredient15
+                const ingredient16 = res.meals[0].strIngredient16
+                const ingredient17 = res.meals[0].strIngredient17
+                const ingredient18 = res.meals[0].strIngredient18
+                const ingredient19 = res.meals[0].strIngredient19
+                const ingredient20 = res.meals[0].strIngredient20
+                const instructions = res.meals[0].strInstructions
+
+                recipeImg.innerHTML = img;
+                recipeName.innerHTML = meal;
+                recipeCategory.innerHTML = category;
+                recipeNation.innerHTML = nation;
+                recipeIngredient1.innerHTML = ingredient1;
+                recipeIngredient2.innerHTML = ingredient2;
+                recipeIngredient3.innerHTML = ingredient3;
+                recipeIngredient4.innerHTML = ingredient4;
+                recipeIngredient5.innerHTML = ingredient5;
+                recipeIngredient6.innerHTML = ingredient6;
+                recipeIngredient7.innerHTML = ingredient7;
+                recipeIngredient8.innerHTML = ingredient8;
+                recipeIngredient9.innerHTML = ingredient9;
+                recipeIngredient10.innerHTML = ingredient10;
+                recipeIngredient11.innerHTML = ingredient11;
+                recipeIngredient12.innerHTML = ingredient12;
+                recipeIngredient13.innerHTML = ingredient13;
+                recipeIngredient14.innerHTML = ingredient14;
+                recipeIngredient15.innerHTML = ingredient15;
+                recipeIngredient16.innerHTML = ingredient16;
+                recipeIngredient17.innerHTML = ingredient17;
+                recipeIngredient18.innerHTML = ingredient18;
+                recipeIngredient19.innerHTML = ingredient19;
+                recipeIngredient20.innerHTML = ingredient20;
+                recipeInstructions.innerHTML = instructions;
+
+            });
     }
 </script>
 </body>
