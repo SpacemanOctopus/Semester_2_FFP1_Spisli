@@ -39,26 +39,89 @@
         <br>
 
         <p class="h5"> Det skal du bruge:</p>
-        <li id="recipeIngredient1">Ingrediens</li>
-        <li id="recipeIngredient2">Ingrediens</li>
-        <li id="recipeIngredient3">Ingrediens</li>
-        <li id="recipeIngredient4">Ingrediens</li>
-        <li id="recipeIngredient5">Ingrediens</li>
-        <li id="recipeIngredient6">Ingrediens</li>
-        <li id="recipeIngredient7">Ingrediens</li>
-        <li id="recipeIngredient8">Ingrediens</li>
-        <li id="recipeIngredient9">Ingrediens</li>
-        <li id="recipeIngredient10">Ingrediens</li>
-        <li id="recipeIngredient11">Ingrediens</li>
-        <li id="recipeIngredient12">Ingrediens</li>
-        <li id="recipeIngredient13">Ingrediens</li>
-        <li id="recipeIngredient14">Ingrediens</li>
-        <li id="recipeIngredient15">Ingrediens</li>
-        <li id="recipeIngredient16">Ingrediens</li>
-        <li id="recipeIngredient17">Ingrediens</li>
-        <li id="recipeIngredient18">Ingrediens</li>
-        <li id="recipeIngredient19">Ingrediens</li>
-        <li id="recipeIngredient20">Ingrediens</li>
+
+        <ul>
+            <li>
+                <span id="recipeMeasure1">100g</span>
+                <span id="recipeIngredient1">Ingrediens</span>
+            </li>
+            <li>
+                <span id="recipeMeasure2">100g</span>
+                <span id="recipeIngredient2">Ingrediens</span>
+            </li>
+            <li>
+                <span id="recipeMeasure3">100g</span>
+                <span id="recipeIngredient3">Ingrediens</span>
+            </li>
+            <li>
+                <span id="recipeMeasure4">100g</span>
+                <span id="recipeIngredient4">Ingrediens</span>
+            </li>
+            <li>
+                <span id="recipeMeasure5">100g</span>
+                <span id="recipeIngredient5">Ingrediens</span>
+            </li>
+            <li>
+                <span id="recipeMeasure6">100g</span>
+                <span id="recipeIngredient6">Ingrediens</span>
+            </li>
+            <li>
+                <span id="recipeMeasure7">100g</span>
+                <span id="recipeIngredient7">Ingrediens</span>
+            </li>
+            <li>
+                <span id="recipeMeasure8">100g</span>
+                <span id="recipeIngredient8">Ingrediens</span>
+            </li>
+            <li>
+                <span id="recipeMeasure9">100g</span>
+                <span id="recipeIngredient9">Ingrediens</span>
+            </li>
+            <li>
+                <span id="recipeMeasure10">100g</span>
+                <span id="recipeIngredient10">Ingrediens</span>
+            </li>
+            <li>
+                <span id="recipeMeasure11">100g</span>
+                <span id="recipeIngredient11">Ingrediens</span>
+            </li>
+            <li>
+                <span id="recipeMeasure12">100g</span>
+                <span id="recipeIngredient12">Ingrediens</span>
+            </li>
+            <li>
+                <span id="recipeMeasure13">100g</span>
+                <span id="recipeIngredient13">Ingrediens</span>
+            </li>
+            <li>
+                <span id="recipeMeasure14">100g</span>
+                <span id="recipeIngredient14">Ingrediens</span>
+            </li>
+            <li>
+                <span id="recipeMeasure15">100g</span>
+                <span id="recipeIngredient15">Ingrediens</span>
+            </li>
+            <li>
+                <span id="recipeMeasure16">100g</span>
+                <span id="recipeIngredient16">Ingrediens</span>
+            </li>
+            <li>
+                <span id="recipeMeasure17">100g</span>
+                <span id="recipeIngredient17">Ingrediens</span>
+            </li>
+            <li>
+                <span id="recipeMeasure18">100g</span>
+                <span id="recipeIngredient18">Ingrediens</span>
+            </li>
+            <li>
+                <span id="recipeMeasure19">100g</span>
+                <span id="recipeIngredient19">Ingrediens</span>
+            </li>
+            <li>
+                <span id="recipeMeasure20">100g</span>
+                <span id="recipeIngredient20">Ingrediens</span>
+            </li>
+        </ul>
 
         <br>
 
@@ -80,6 +143,26 @@
     const recipeName = document.querySelector("#recipeName");
     const recipeCategory = document.querySelector("#recipeCategory");
     const recipeNation = document.querySelector("#recipeNation");
+    const recipeMeasure1 = document.querySelector("#recipeMeasure1");
+    const recipeMeasure2 = document.querySelector("#recipeMeasure2");
+    const recipeMeasure3 = document.querySelector("#recipeMeasure3");
+    const recipeMeasure4 = document.querySelector("#recipeMeasure4");
+    const recipeMeasure5 = document.querySelector("#recipeMeasure5");
+    const recipeMeasure6 = document.querySelector("#recipeMeasure6");
+    const recipeMeasure7 = document.querySelector("#recipeMeasure7");
+    const recipeMeasure8 = document.querySelector("#recipeMeasure8");
+    const recipeMeasure9 = document.querySelector("#recipeMeasure9");
+    const recipeMeasure10 = document.querySelector("#recipeMeasure10");
+    const recipeMeasure11 = document.querySelector("#recipeMeasure11");
+    const recipeMeasure12 = document.querySelector("#recipeMeasure12");
+    const recipeMeasure13 = document.querySelector("#recipeMeasure13");
+    const recipeMeasure14 = document.querySelector("#recipeMeasure14");
+    const recipeMeasure15 = document.querySelector("#recipeMeasure15");
+    const recipeMeasure16 = document.querySelector("#recipeMeasure16");
+    const recipeMeasure17 = document.querySelector("#recipeMeasure17");
+    const recipeMeasure18 = document.querySelector("#recipeMeasure18");
+    const recipeMeasure19 = document.querySelector("#recipeMeasure19");
+    const recipeMeasure20 = document.querySelector("#recipeMeasure20");
     const recipeIngredient1 = document.querySelector("#recipeIngredient1");
     const recipeIngredient2 = document.querySelector("#recipeIngredient2");
     const recipeIngredient3 = document.querySelector("#recipeIngredient3");
@@ -113,6 +196,26 @@
                 const meal = res.meals[0].strMeal;
                 const category = res.meals[0].strCategory
                 const nation = res.meals[0].strArea
+                const measure1 =res.meals[0].strMeasure1
+                const measure2 =res.meals[0].strMeasure2
+                const measure3 =res.meals[0].strMeasure3
+                const measure4 =res.meals[0].strMeasure4
+                const measure5 =res.meals[0].strMeasure5
+                const measure6 =res.meals[0].strMeasure6
+                const measure7 =res.meals[0].strMeasure7
+                const measure8 =res.meals[0].strMeasure8
+                const measure9 =res.meals[0].strMeasure9
+                const measure10 =res.meals[0].strMeasure10
+                const measure11 =res.meals[0].strMeasure11
+                const measure12 =res.meals[0].strMeasure12
+                const measure13 =res.meals[0].strMeasure13
+                const measure14 =res.meals[0].strMeasure14
+                const measure15 =res.meals[0].strMeasure15
+                const measure16 =res.meals[0].strMeasure16
+                const measure17 =res.meals[0].strMeasure17
+                const measure18 =res.meals[0].strMeasure18
+                const measure19 =res.meals[0].strMeasure19
+                const measure20 =res.meals[0].strMeasure20
                 const ingredient1 = res.meals[0].strIngredient1
                 const ingredient2 = res.meals[0].strIngredient2
                 const ingredient3 = res.meals[0].strIngredient3
@@ -139,6 +242,26 @@
                 recipeName.innerHTML = meal;
                 recipeCategory.innerHTML = category;
                 recipeNation.innerHTML = nation;
+                recipeMeasure1.innerHTML = measure1;
+                recipeMeasure2.innerHTML = measure2;
+                recipeMeasure3.innerHTML = measure3;
+                recipeMeasure4.innerHTML = measure4;
+                recipeMeasure5.innerHTML = measure5;
+                recipeMeasure6.innerHTML = measure6;
+                recipeMeasure7.innerHTML = measure7;
+                recipeMeasure8.innerHTML = measure8;
+                recipeMeasure9.innerHTML = measure9;
+                recipeMeasure10.innerHTML = measure10;
+                recipeMeasure11.innerHTML = measure11;
+                recipeMeasure12.innerHTML = measure12;
+                recipeMeasure13.innerHTML = measure13;
+                recipeMeasure14.innerHTML = measure14;
+                recipeMeasure15.innerHTML = measure15;
+                recipeMeasure16.innerHTML = measure16;
+                recipeMeasure17.innerHTML = measure17;
+                recipeMeasure18.innerHTML = measure18;
+                recipeMeasure19.innerHTML = measure19;
+                recipeMeasure20.innerHTML = measure20;
                 recipeIngredient1.innerHTML = ingredient1;
                 recipeIngredient2.innerHTML = ingredient2;
                 recipeIngredient3.innerHTML = ingredient3;
