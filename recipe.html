@@ -24,16 +24,25 @@
     <img id="recipeImg" class="recipeimg object-fit-cover w-100" src="img/nem-hurtig-lasagne%201.png" alt="Billede af mad">
 </div>
 
+<div class="container ps-4 pe-4">
+    <a class="link-dark" href="recipe.html">
+        <div class="mt-4 mb-4 btn rounded-5 custombtn">Giv mig en ny opskrift!</div>
+    </a>
+</div>
+
 <div class="container boks">
     <div class="col-12 ps-4 pe-4">
-        <a class="link-dark" href="recipe.html"><div class="mt-4 mb-4 text-center btn w-100 rounded-5 custombtn">Giv mig en ny opskrift!</div></a>
 
         <h1 id="recipeName"> Opskrift navn </h1>
 
-        <p class="fw-bold">Kategori: </p>
-        <p id="recipeCategory">N/A</p>
-        <p class="fw-bold">Nationalitet: </p>
-        <p id="recipeNation">N/A</p>
+        <div>
+            <span class="fw-bold">Kategori: </span>
+            <span id="recipeCategory">N/A</span>
+        </div>
+        <div>
+            <span class="fw-bold">Nationalitet: </span>
+            <span id="recipeNation">N/A</span>
+        </div>
 
         <br>
         <br>
@@ -128,8 +137,16 @@
         <p class="h5">Sådan gør du:</p>
         <p id="recipeInstructions"></p>
 
+        <div>
+            <span class="fst-italic">Kilde: </span>
+            <span class="fst-italic" id="recipeSource"></span>
+        </div>
     </div>
-    <div class="mt-4 mb-4 text-center btn w-100 rounded-5 custombtn">Download opskrift</div>
+
+</div>
+
+<div class="container ps-4 pe-4">
+    <div class="mt-4 mb-4 btn rounded-5 custombtn">Download opskrift</div>
 </div>
 
 <br>
@@ -184,6 +201,7 @@
     const recipeIngredient19 = document.querySelector("#recipeIngredient19");
     const recipeIngredient20 = document.querySelector("#recipeIngredient20");
     const recipeInstructions = document.querySelector("#recipeInstructions");
+    const recipeSource = document.querySelector("#recipeSource");
 
     findRecipe();
 
@@ -196,26 +214,26 @@
                 const meal = res.meals[0].strMeal;
                 const category = res.meals[0].strCategory
                 const nation = res.meals[0].strArea
-                const measure1 =res.meals[0].strMeasure1
-                const measure2 =res.meals[0].strMeasure2
-                const measure3 =res.meals[0].strMeasure3
-                const measure4 =res.meals[0].strMeasure4
-                const measure5 =res.meals[0].strMeasure5
-                const measure6 =res.meals[0].strMeasure6
-                const measure7 =res.meals[0].strMeasure7
-                const measure8 =res.meals[0].strMeasure8
-                const measure9 =res.meals[0].strMeasure9
-                const measure10 =res.meals[0].strMeasure10
-                const measure11 =res.meals[0].strMeasure11
-                const measure12 =res.meals[0].strMeasure12
-                const measure13 =res.meals[0].strMeasure13
-                const measure14 =res.meals[0].strMeasure14
-                const measure15 =res.meals[0].strMeasure15
-                const measure16 =res.meals[0].strMeasure16
-                const measure17 =res.meals[0].strMeasure17
-                const measure18 =res.meals[0].strMeasure18
-                const measure19 =res.meals[0].strMeasure19
-                const measure20 =res.meals[0].strMeasure20
+                const measure1 = res.meals[0].strMeasure1
+                const measure2 = res.meals[0].strMeasure2
+                const measure3 = res.meals[0].strMeasure3
+                const measure4 = res.meals[0].strMeasure4
+                const measure5 = res.meals[0].strMeasure5
+                const measure6 = res.meals[0].strMeasure6
+                const measure7 = res.meals[0].strMeasure7
+                const measure8 = res.meals[0].strMeasure8
+                const measure9 = res.meals[0].strMeasure9
+                const measure10 = res.meals[0].strMeasure10
+                const measure11 = res.meals[0].strMeasure11
+                const measure12 = res.meals[0].strMeasure12
+                const measure13 = res.meals[0].strMeasure13
+                const measure14 = res.meals[0].strMeasure14
+                const measure15 = res.meals[0].strMeasure15
+                const measure16 = res.meals[0].strMeasure16
+                const measure17 = res.meals[0].strMeasure17
+                const measure18 = res.meals[0].strMeasure18
+                const measure19 = res.meals[0].strMeasure19
+                const measure20 = res.meals[0].strMeasure20
                 const ingredient1 = res.meals[0].strIngredient1
                 const ingredient2 = res.meals[0].strIngredient2
                 const ingredient3 = res.meals[0].strIngredient3
@@ -237,8 +255,9 @@
                 const ingredient19 = res.meals[0].strIngredient19
                 const ingredient20 = res.meals[0].strIngredient20
                 const instructions = res.meals[0].strInstructions
+                const source = res.meals[0].strSource
 
-                recipeImg.innerHTML = img;
+                recipeImg.src = img;
                 recipeName.innerHTML = meal;
                 recipeCategory.innerHTML = category;
                 recipeNation.innerHTML = nation;
@@ -283,6 +302,7 @@
                 recipeIngredient19.innerHTML = ingredient19;
                 recipeIngredient20.innerHTML = ingredient20;
                 recipeInstructions.innerHTML = instructions;
+                recipeSource.innerHTML = source;
 
             });
     }

@@ -37,21 +37,34 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 }
 
 .paragraph{
-	padding-left: 30px;
-	padding-right: 30px;
+
 }
 
 .custombtn{
 	background-color: #FAA4B5;
+	width: 100%;
 	&:hover {
 		background: darken(#FAA4B5, 10%)
 	}
 }
 
-section{
-	display: inline-block;
-}
-
 footer{
 	background-color: #82ba88;
+}
+
+@media (min-width: 1024px) {
+	.boks{
+	display: flex;
+	justify-content: center;
+	padding-left: 366px;
+		padding-right: 366px;
+	}
+}
+
+@media (min-width: 1024px) {
+	.custombtn{
+		width: 512px;
+		margin-left: 280px;
+		text-align: center;
+	}
 }
